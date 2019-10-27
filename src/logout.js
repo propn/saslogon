@@ -1,5 +1,7 @@
 require('./themes/default/css/sas.css');
 import $ from 'jQuery';
+var a=require('./a');
+alert(a.square(4));
 
 $(document).on('keydown', function(e)
 {

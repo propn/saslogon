@@ -1,9 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');//清理built目录
 const CopyWebpackPlugin = require('copy-webpack-plugin');//复制静态图片资源
 const HtmlWebpackPlugin = require('html-webpack-plugin');//引入html-webpack-plugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin');//css文件
 const SVGURLLOADER = require('svg-url-loader');//处理svg图片
+
 module.exports = { 
     entry: {
         index:'./src/index.js',
@@ -13,6 +15,30 @@ module.exports = {
         filename:'[name].[hash:8].js',
         path: path.resolve(__dirname, 'dist'),
     },
+    // optimization: { //抽取公共js文件####有问题
+    //     minimize: false,
+	// 	splitChunks: {
+	// 		cacheGroups: {
+	// 			commons: {
+	// 				chunks: "all",
+	// 				minChunks: 2,
+	// 				maxInitialRequests: 1, // The default limit is too small to showcase the effect
+    //                 minSize: 1 ,// This is example is too small to create commons chunks
+    //                 enforce: true                    
+    //             },
+    //             vendor: {
+    //                 test: /node_modules/,
+    //                 chunks: "all",
+    //                 name: "vendor",
+    //                 priority: 10,
+    //                 enforce: true
+    //             }
+	// 		}
+    //     },
+    //     runtimeChunk: {
+    //         name: 'runtime'
+    //     },
+	// },
     module: { // 处理对应模块
         rules: [
             {
@@ -74,4 +100,5 @@ module.exports = {
         port: 9090,//端口号
         compress: true//开发服务器是否启动gzip等压缩
     },
+
 }
