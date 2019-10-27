@@ -1,0 +1,88 @@
+<html lang="zh-CN" dir="ltr" class="bg">
+<head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="viewport" content="initial-scale=1">
+</head>
+<body>
+	<div class="content">
+        <div class="block" id="nonModal" aria-hidden="false">
+            <div class="loginbox" id="loginbox">
+                <!--~~~~~~~~~~~~~~~~~~~~~MESSAGE CONTAINER~~~~~~~~~~~~~~~~~~~~~-->
+				<div class="message" style='display:none;' id="nocookie-message" aria-hidden="true">
+                    <div class="errorIcon"></div>
+                    <h2>该应用程序要求您的浏览器接受 Cookie。 相应更改您的浏览器设置。</h2>
+                </div>
+                <img class="logo" alt="" src="themes/default/images/transparent.png">
+				<!--customizable logo-->               
+				<header>
+					<img class="logo" alt="SAS Logo" src="themes/default/images/saslogo.svg">
+				</header>
+				<div class="infobox" style='display:none;'>
+                    <h3>您已注销。</h3>          
+                    <p>为提高安全性，请关闭浏览器。</p>
+				</div>
+				<div class="infobox">
+					<h3>您已登录。</h3>
+					<p>为提高安全性，请在完成访问那些要求身份验证的服务后注销并关闭 Web 浏览器。</p>
+					<button type="button" class="btn-submit" onclick="javascript:window.location.href='logout?';">注销</button>
+				</div>
+                <!--~~~~~~~~~~~~~~~~~~~~~MAIN CONTAINER~~~~~~~~~~~~~~~~~~~~~-->
+            </div>            
+        </div>
+    </div>
+
+	<footer>    
+		<div class="copyright"><!--copyright statement-->
+			<span dir="ltr">&copy; 2002-2018, SAS Institute Inc., Cary, NC, USA. All Rights Reserved.</span>
+			<a href="#openModal" onClick="$('#openModal').show()" class="about" title="关于">关于</a>
+		</div>
+	</footer>
+<!--~~~~~~~~~~~~~~~~~~~~~ABOUT DIALOG MODAL CONTENT~~~~~~~~~~~~~~~~~-->
+<div class="modalDialog" id="openModal" aria-hidden="true" style="z-index: 9999;"><!--modal container-->
+  <div>
+    <div class="test" dir="auto">
+      <div>&rlm;</div>
+        <div><a href="" onClick="$('#openModal').hide();" title="已完成" class="done">已完成</a></div><!--done button-->
+    </div>
+       <!-- about dialog content -->
+       <br>
+      <div dir="auto">
+      <p>产品名: SAS<sup>&reg;</sup> Logon Manager</p>
+      <p>发行版: 9.4</p>
+      <h2>法律声明</h2>
+      </div>
+      <div dir="ltr">
+      <p>Copyright 2002-2018, SAS Institute Inc., Cary, NC, USA. All Rights Reserved.
+      This software is protected by copyright laws and international treaties.</p>
+      <h3>U.S. Government Restricted Rights</h3>
+      <p>Use, duplication or disclosure of this software and related documentation by the United States government is subject to the license terms of the Agreement with SAS Institute Inc. pursuant to, as applicable, FAR 12.212, DFAR 227.7202-1(a), DFAR 227.7202-3(a) and DFAR 227.7202-4 and, to the extent required under United States federal law, the minimum restricted rights as set out in FAR 52.227-19 (DEC 2007).</p>
+      <h3>Third-Party Software Usage</h3>
+      <h4>Central Authentication Service</h4>
+      <p>Copyright © 2007, JA-SIG, Inc. All rights reserved.</p>
+      <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+      <ul>
+      <li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
+      <br>
+      <li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
+      <br>
+      <li><p>Neither the name of the JA-SIG, Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p></li>
+      </ul>
+      <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+         "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+         LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+         A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+         CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+         EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+         PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+         PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+         LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+         NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+         SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+     </div>
+  </div>
+</div>
+<div class="radiance">
+</div>
+</body>
+</html>
