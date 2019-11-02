@@ -3,6 +3,7 @@ require('./themes/default/css/sas.css');
 import a, * as libx from './a';
 alert(libx.square(8));
 a();
+
 // alert(libx());
 
 $(document).on('keydown', function(e)

@@ -10,6 +10,7 @@ module.exports = {
     entry: {
         index:'./src/index.js',
         logout:'./src/logout.js',
+        cistudio:'./src/cistudio.js',
     },
     output: {
         filename:'[name].[hash:8].js',
@@ -90,6 +91,13 @@ module.exports = {
             filename: 'logout.html',//输出文件名
             template: './src/logout.html',//以当前目录下的index.html文件为模板生成dist/index.html文件
 			chunks: ['logout'], // 默认会将打包出的所有 js 插入 html。故需指明页面需要的模块
+        }),
+        new HtmlWebpackPlugin({ //配置
+            title: 'SAS CI Studio',
+            favicon: 'src/themes/default/images/favicon.ico',
+            filename: 'cistudio.html',//输出文件名
+            template: './src/cistudio.html',//以当前目录下的index.html文件为模板生成dist/index.html文件
+			chunks: ['cistudio'], // 默认会将打包出的所有 js 插入 html。故需指明页面需要的模块
         }),
     ],    
     devServer: {
