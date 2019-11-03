@@ -99,6 +99,13 @@ module.exports = {
             template: './src/cistudio.html',//以当前目录下的index.html文件为模板生成dist/index.html文件
 			chunks: ['cistudio'], // 默认会将打包出的所有 js 插入 html。故需指明页面需要的模块
         }),
+        new HtmlWebpackPlugin({ //配置
+            title: 'dev',
+            favicon: 'src/themes/default/images/favicon.ico',
+            filename: 'dev.html',//输出文件名
+            template: './src/dev.html',//以当前目录下的index.html文件为模板生成dist/index.html文件
+			chunks: ['cistudio'], // 默认会将打包出的所有 js 插入 html。故需指明页面需要的模块
+        }),
     ],    
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),//开发服务运行时的文件根目录
