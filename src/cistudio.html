@@ -1,184 +1,581 @@
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>SAS</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    </head>
-    <style>
-    
-    html,body{
-        height: 100%;
-        width: 100%;
+</head>
+<style>
+    /* http://www.divcss5.com/jiqiao/j4.shtml */
+    * {
         margin: 0px;
-        padding:0 !important;
-        overflow:auto;
+        border: none;
+        padding: 0px;
+    }
+
+    html,
+    body {
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        height: 100%;
+        max-height: 100%;
         background-color: rgb(242, 242, 242);
         font-family: 'Arial Narrow', 新宋体;
         font-size: small;
+        /* overflow: hidden; */
     }
 
-    .header{
-        position:absolute;
+    #wrap {
+        position: absolute;
         top: 0px;
-        width:100%;
-        height:65px;
-        line-height: 65px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: rgb(242, 242, 242);
     }
 
-    .middle{
-        position:absolute;
-        top: 65px;
-        bottom:25px;
-        width: 100%;
-        height: auto;
-        /* height: 100%; */
-        border:2px solid red;
-        overflow: auto;
-    }
-
-   .footer{
-        position:absolute;
-        bottom:0;
-        width:100%;
-        height:25px;
-        background:rgb(255, 255, 255);
-        /* line-height:25px;
-        text-align: left; */
-    }
-
-    .bander{
+    #header {
+        position: absolute;
+        top: 0px;
+        height: 65px;
+        left: 0px;
+        right: 0px;
         background-color: #154158;
-        height: 40px;
-        /* line-height: 40px; */
     }
 
-    .left{
-        float: left;
-        margin-left: 10px;
-        color:#FFFFFF;
-        line-height: 34px;
-        vertical-align:middle;
-    }
-
-    .right{
-        float: right;
-        margin-right: 10px;
-        color:#FFFFFF;
-        line-height: 40px;
-        vertical-align:middle;
-    }
-  
-    .top-menu{
-        height: 25px;
-        background-color: #E7E7E7;
-        font-size:small;
-        /* line-height: 25;
-        vertical-align: middle; */
-        /* position: relative;*/
-    }
-
-    .menu{
-        float: left;
-        position: relative;
-        line-height: 25px;
-        vertical-align:middle;
-        /* transition-delay: 5ms; */
-    }
-
-    .menu:hover{
-        background-color: #96CBE7;
-        cursor:pointer;
-    }
-
-    .menu div{
-        float: left;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .menu2{
-        float: right;
-        margin-right: 10px;
-        line-height: 25px;
-        vertical-align:middle;
-        transition-delay: 5ms;
-    }
-
-    .msg{
-        float: left;
-        margin-left: 10px;
-        cursor: pointer;
-    }
-    .userinfo{
-        float: right;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-
-    /*  */
-
-
-
-    .sub{
-        position: relative;
-        margin-top: 5px;
-        margin-bottom: 50px;
-        width: 100px;
-        /* height: 100%; */
-        background-color:rgb(255, 255, 255);
-        resize: horizontal;
+    #main {
+        position: absolute;
+        top: 65px;
+        bottom: 25px;
+        left: 0px;
+        right: 0px;
+        /*  */
         overflow: hidden;
-        border:2px solid red;
     }
 
-    .inner{
-        width:100%;
-        height:100%;
-        /*border:1px solid #000;*/
+    #footer {
+        position: absolute;
+        height: 25px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        background-color: rgb(255, 255, 255);
     }
 
-    .sub:hover{
-        cursor: w-resize;
+    #main-left {
+        float: left;
+        height: 100%;
+        max-height: 100%;
     }
 
-    .inner:hover{
-        cursor: default;
+    #main-right {
+        height: 100%;
+        max-height: 100%;
     }
 
-    </style>
-    <body>
-    <div>
-        <div class="header">
-            <div class="bander">
-                <div class="left">SAS<sup>&reg;</sup> Customer Intelligence Studio</div>
-                <div class="right">Customer</div>
+    #banner {
+        float: left;
+        margin-left: 10px;
+        color: #FFFFFF;
+        line-height: 34px;
+        vertical-align: middle;
+    }
+
+    #logo {
+        float: right;
+        margin-right: 10px;
+        line-height: 40px;
+        vertical-align: middle;
+    }
+
+    #logo img {
+        max-height: 25px;
+        vertical-align: middle;
+    }
+
+    #nav {
+        position: absolute;
+        top: 40px;
+        left: 0px;
+        right: 0px;
+        background-color: rgb(231, 231, 231);
+    }
+
+    #toptog {
+        margin-right: 10px;
+        float: right;
+        line-height: 25px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .menu {
+        float: left;
+        line-height: 25px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .menu div {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .menu:hover {
+        background-color: #96CBE7;
+    }
+
+    #subnav {
+        float: left;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #sideBar {
+        float: left;
+        width: 10px;
+        height: 100%;
+        cursor: pointer;
+        /* background-color: #6a6f72; */
+    }
+
+    .submenu {
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .submenu:hover {
+        background-color: #96CBE7;
+    }
+
+    #content {
+        height: 100%;
+        max-height: 100%;
+        /* background-color: rgb(255, 255, 255); */
+    }
+
+    .tb-name {
+        height: 20px;
+        background-color: rgb(242, 242, 242);
+    }
+
+    .tb-tools {
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+        cursor: pointer;
+        border: solid 0.5px;
+    }
+
+    .tb-content {
+        /**/
+        height: 90%;
+        max-height: 90%;
+        overflow-y: auto;
+        /* background-color: rgb(70, 93, 172); */
+    }
+
+    .tb-content table {
+        border: 0.1px;
+        width: 100%;
+    }
+
+
+    table {
+
+        border-collapse: collapse;
+
+        margin: 0 auto;
+
+        text-align: center;
+
+    }
+
+    table td,
+    table th {
+        border: 1px solid rgb(190, 195, 201);
+        color: #666;
+        height: 30px;
+    }
+
+    table thead th {
+        background-color: rgb(224, 224, 224);
+        width: 100px;
+    }
+
+    table tr:nth-child(odd) {
+        background: rgb(255, 255, 255);
+    }
+
+    table tr:nth-child(even) {
+        background-color: rgb(239, 240, 242);
+    }
+
+    .msg {
+        float: left;
+        margin-left: 10px;
+        cursor: pointer;
+        line-height: 25px;
+        vertical-align: middle;
+    }
+
+    .userinfo {
+        float: right;
+        margin-right: 10px;
+        cursor: pointer;
+        line-height: 25px;
+        vertical-align: middle;
+    }
+</style>
+
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="banner">SAS<sup>&reg;</sup> Customer Intelligence Studio</div>
+
+            <div id="logo">
+                <img class="logo" alt="SAS Logo" src="themes/default/images/saslogo.svg">
             </div>
 
-            <div class="top-menu">
-                <div class="menu"><div>文件</div></div>
-                <div class="menu"><div>帮助</div></div>
-                <div class="menu"><div>设计器</div></div>
-                <div class="menu"><div>定义</div></div>
-                <div class="menu"><div>设置</div></div>
-                <div class="menu"><div>管理</div></div>
-                <div class="menu2"><div><a href="#">|||</a></div></div>
+            <div id="nav">
+                <div class="menu">
+                    <div>文件</div>
+                </div>
+                <div class="menu">
+                    <div>帮助</div>
+                </div>
+                <div class="menu">
+                    <div>设计器</div>
+                </div>
+                <div class="menu">
+                    <div>定义</div>
+                </div>
+                <div class="menu">
+                    <div>设置</div>
+                </div>
+                <div class="menu">
+                    <div>管理</div>
+                </div>
+                <div id="toptog">|||</div>
             </div>
         </div>
 
+        <div id="main">
+            <div id="main-left">
+                <div id="subnav">
+                    <div class="submenu" style="background-color: rgb(165, 189, 193);">选择式营销活动</div>
+                    <div class="submenu">选择式营销活动组</div>
+                    <div class="submenu">促销</div>
+                </div>
+                <div id="sideBar"></div>
+            </div>
+            <div id="main-right">
+                <div class="tb-name">
+                    <span>选择式营销活动（4/4）| 搜索：（无）|</span>
+                    <span style="cursor: pointer;">查询条件</span>
+                    <div style="float: right;">
+                        <input type="text" value="搜索：选择式营销活动"></input>
+                        <span style="cursor: pointer;right: 0;">保存搜索</span>
+                    </div>
+                </div>
+                <div class="tb-tools">新增|删除|刷新|下载|显示列|显示模式</div>
+                <div id="content">
+                    <div class="tb-content">
+                        <table>
+                            <thead style="background-color: rgb(222, 222, 222);">
+                                <tr style="width: 100%;">
+                                    <th width="15%">名称</th>
+                                    <th width="15%">代码</th>
+                                    <th width="25%">文件夹</th>
+                                    <th width="15%">状态</th>
+                                    <th width="15%">修改日期</th>
+                                    <th width="15%">修改者</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <td>上一页 第1页 共2页 下一页</td>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
 
+                                <tr style="background-color: rgb(137, 196, 227);">
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
 
-        <div class="footer">
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                                <tr>
+                                    <td>营销活动01</td>
+                                    <td>CAMP1401</td>
+                                    <td>营销活动\批量\总行\</td>
+                                    <td>完成</td>
+                                    <td>2019-11-03 14:30</td>
+                                    <td>SAS演示用户</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
             <div class="msg">提醒：共有9个，9个为新提醒</div>
             <div class="userinfo">| 业务环境01 | 用户：SAS演示用户</div>
         </div>
-
-        <div class="middle">
-            <div id="moveBarBox" class="sub"  onmousedown="startDrag()">
-                <div class="inner" ></div>
-            </div>
-        </div>
     </div>
-
-    </body>
-</html>
+</body>

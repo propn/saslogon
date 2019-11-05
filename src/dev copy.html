@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>SAS</title>
+</head>
+<style>
+    html,
+    body {
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        height: 100%;
+        max-height: 100%;
+        background-color: rgb(242, 242, 242);
+        font-family: 'Arial Narrow', 新宋体;
+        font-size: small;
+    }
+
+    .header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0px;
+        /* height: 65px; */
+        /* line-height: 65px; */
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+        background: rgb(255, 255, 255);
+    }
+
+    .middle {
+        position: absolute;
+        top: 65px;
+        bottom: 25px;
+        left: 0;
+        right: 0;
+        overflow: auto;
+    }
+    
+        /*  */
+    .bander {
+        height: 40px;
+        max-height: 40px;
+        width: 100%;
+        line-height: 40px;
+        background-color: #154158;
+    }
+
+    .left {
+        float: left;
+        margin-left: 10px;
+        color: #FFFFFF;
+        line-height: 34px;
+        vertical-align: middle;
+    }
+
+    .right {
+        float: right;
+        margin-right: 10px;
+        color: #FFFFFF;
+        line-height: 40px;
+        vertical-align: middle;
+    }
+
+    .top-menu {
+        line-height: 25px;
+        background-color: #E7E7E7;
+    }
+
+    .top-menu-item {
+        float: left;
+        line-height: 25px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .top-menu-item:hover {
+        background-color: #96CBE7;
+    }
+
+    .top-menu-item div {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .menu2 {
+        float: right;
+        margin-right: 10px;
+        line-height: 25px;
+        vertical-align: middle;
+    }
+
+    /*  */
+
+    .msg {
+        float: left;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .userinfo {
+        float: right;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+
+    /*  */
+    .submenu {
+        display: '';
+        float: left;
+        height: 100%;
+        /*必须*/
+        /* border:1px dashed #000; */
+        background: rgb(255, 255, 255);
+    }
+
+    .submenu div {
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .submenu div:hover {
+        background-color: #96CBE7;
+    }
+
+    .tog {
+        float: left;
+        height: 100%;
+        /*必须*/
+        width: 10px;
+        cursor: pointer;
+    }
+
+    .main {
+        /* float: left; */
+        height: 100%;
+        /*必须*/
+        /* padding: 10px; */
+        float: left;
+        position: absolute;
+        top: 57px;
+        bottom: 35px;
+    }
+
+    /*  */
+
+    .tb-name {
+        display: block;
+        height: 20px;
+        padding: 2px;
+        background-color: rgb(242, 242, 242);
+    }
+
+    .tb-tools {
+        display: block;
+        margin-left: 10px;
+        /* margin-left: 50px;
+        margin-top: 2px;
+        margin-bottom: 2px; */
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+        cursor: pointer;
+        border: solid 0.5px;
+    }
+
+    .tb-content {
+        display: block;
+        background-color: rgb(255, 255, 255);
+        overflow: scroll;
+    }
+</style>
+
+<body>
+
+    <!-- 上 -->
+    <div class="header">
+
+        <div class="bander">
+            <div class="left">SAS<sup>&reg;</sup> Customer Intelligence Studio</div>
+            <div class="right">Customer</div>
+        </div>
+
+        <div class="top-menu">
+            <div class="top-menu-item">
+                <div>文件</div>
+            </div>
+            <div class="top-menu-item">
+                <div>帮助</div>
+            </div>
+            <div class="top-menu-item" style="background-color: #96CBE7;">
+                <div>设计器</div>
+            </div>
+            <div class="top-menu-item">
+                <div>定义</div>
+            </div>
+            <div class="top-menu-item">
+                <div>设置</div>
+            </div>
+            <div class="top-menu-item">
+                <div>管理</div>
+            </div>
+            <div class="menu2">
+                <div><a href="#">|||</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 中 -->
+    <div class="middle">
+
+        <div class="submenu">
+            <div style="background-color: rgb(165, 189, 193);">选择式营销活动</div>
+            <div>选择式营销活动组</div>
+            <div>促销</div>
+        </div>
+
+        <div class="tog"></div>
+
+        <div class="main">
+            <div class="tb-name">选择式营销活动（4/4）| 搜索：（无）|
+                <span style="cursor: pointer;">查询条件</span>
+                <input type="text" value="搜索：选择式营销活动"></input>
+                <span style="cursor: pointer;">保存搜索</span>
+            </div>
+            <div class="tb-tools">新增|删除|刷新|下载|显示列|显示模式</div>
+            <div class="tb-content">
+                <table style="border-style: solid; border-width: 0.1px ;">
+                    <thead style="background-color: rgb(222, 222, 222);">
+                        <tr>
+                            <th width="100px">名称</th>
+                            <th width="15%">代码</th>
+                            <th width="25%">文件夹</th>
+                            <th width="15%">状态</th>
+                            <th width="15%">修改日期</th>
+                            <th width="15%">修改者</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(239, 240, 242);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                        <tr style="background-color: rgb(255, 255, 255);">
+                            <td>营销活动01</td>
+                            <td>CAMP1401</td>
+                            <td>营销活动\批量\总行\</td>
+                            <td>完成</td>
+                            <td>2019-11-03 14:30</td>
+                            <td>SAS演示用户</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 下 -->
+    <div class="footer">
+        <div class="msg">提醒：共有9个，9个为新提醒</div>
+        <div class="userinfo">| 业务环境01 | 用户：SAS演示用户</div>
+    </div>
+</body>
